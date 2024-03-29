@@ -22,7 +22,7 @@ const Navbar = () => {
   }, [query]);
 
   return (
-    <div className="w-full h-[10vh] relative flex items-center justify-start ml-[15%]">
+    <div className="w-[80%] h-[10vh] relative flex items-center justify-start ml-[15%]">
       <i className="text-zinc-400 text-3xl ri-search-line"></i>
 
       <input
@@ -40,7 +40,7 @@ const Navbar = () => {
         ></i>
       )}
 
-      <div className="absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[90%] overflow-auto rounded">
+      <div className="absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[100%] overflow-auto rounded left-[5%]">
         {searchs &&
           searchs.map((s, i) => (
             <Link
