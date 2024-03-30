@@ -10,7 +10,7 @@ const Navbar = () => {
   const GetSearch = async () => {
     try {
       const { data } = await axios.get(`/search/multi?query=${query}`);
-      console.log(data);
+      // console.log(data);
       setSearchs(data.results);
     } catch (error) {
       console.log("Error :" + error);
