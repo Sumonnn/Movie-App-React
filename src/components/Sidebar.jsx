@@ -7,9 +7,9 @@ const Sidebar = () => {
     <div className="w-[20%] h-full border-r-2 p-8">
 
       <div className="text-white font-bold text-xl">
-        <h1>
+        <Link to="/">
           <i className="text-[#6556CD] mr-2 ri-tv-fill"></i>RJFGs.
-        </h1>
+        </Link>
       </div>
 
       {/* Links */}
@@ -18,7 +18,7 @@ const Sidebar = () => {
 
         <h2 className="text-white font-semibold text-xl">New Feeds</h2>
         
-        <Link className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/trending" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="ri-fire-fill"></i>  Tranding
         </Link>
 

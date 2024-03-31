@@ -5,6 +5,7 @@ import axios from "../utils/axios";
 import Header from "../components/dashboard/Header";
 import HorizontalCards from "../components/common/HorizontalCards";
 import DropDown from "../components/common/DropDown";
+import Loading from "../components/common/Loading";
 
 const Home = () => {
   // document.title = 'Su Mon | Homepage'
@@ -28,7 +29,7 @@ const Home = () => {
   const GetTrendings = async () => {
     try {
       const { data } = await axios.get(`trending/${category}/day`);
-      console.log("all results" + data.results);
+      // console.log("all results" + data.results);
       setTrending(data.results);
     } catch (error) {
       console.log("Error :" + error);
@@ -51,14 +52,14 @@ const Home = () => {
         <div className="p-4 flex justify-between gap-5 items-center">
           <h1 className="text-3xl font-semibold text-zinc-400">Trending</h1>
 
-          <DropDown setCategory={setCategory} title="Filter" options={["all", "tv", "movie"]} />
+          <DropDown func={setCategory} title="Filter" options={["all", "tv", "movie"]} />
         </div>
 
         <HorizontalCards data={trending} />
       </div>
     </div>
   ) : (
-    <p>Loading...</p>
+    <Loading/>
   );
 };
 
