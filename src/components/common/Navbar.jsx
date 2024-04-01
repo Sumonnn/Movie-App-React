@@ -40,7 +40,7 @@ const Navbar = () => {
         ></i>
       )}
 
-      <div className="absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[100%] overflow-auto rounded left-[5%]">
+      <div className="absolute z-10 w-[50%] max-h-[50vh] bg-zinc-200 top-[100%] overflow-auto rounded left-[5%]">
         {searchs &&
           searchs.map((s, i) => (
             <Link

@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import noimage from "/Nophoto.jpg";
+
 
 const Cards = ({data,category}) => {
   return (
@@ -7,7 +9,7 @@ const Cards = ({data,category}) => {
         {
             data.map((c,i)=>(
                 <Link
-                    to={`/${c.media_type || title}/details/${c.id}`}
+                    to={`/${c.media_type || c.title}/details/${c.id}`}
                     className="relative w-[25vh] mr-[5%] mb-[5%]"
                     key={i}
                 >
