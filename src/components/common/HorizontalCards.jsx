@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import DropDown from "./DropDown";
+import { Link } from "react-router-dom";
 
 const HorizontalCards = ({ data }) => {
+
+
   return (
       <div className="w-[100%] h-[40vh] ml-1 flex overflow-y-hidden">
         {data.map((d, i) => (
-          <div
+          <Link
+            to={`/${d.media_type}/details/${d.id}`}
             key={i}
             className="min-w-[15%] rounded duration-300 shadow hover:rounded-none overflow-hidden h-full mr-5 bg-zinc-900"
           >
@@ -29,7 +33,7 @@ const HorizontalCards = ({ data }) => {
                 </span>
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
   );

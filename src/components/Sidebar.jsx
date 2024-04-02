@@ -30,7 +30,7 @@ const Sidebar = () => {
         <i className="mr-2 ri-movie-2-fill"></i> Movies
         </Link>
 
-        <Link to="/tv-show" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/tv" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="mr-2 ri-tv-2-fill"></i> Tv Shows
         </Link>
 

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 import noimage from "/Nophoto.jpg";
 
 
-const Cards = ({data,category}) => {
+const Cards = ({data,title}) => {
+    
   return (
     <div className="flex flex-wrap w-full h-full px-[5%] bg-[#1F1E24]">
         {
             data.map((c,i)=>(
                 <Link
-                    to={`/${c.media_type || c.title}/details/${c.id}`}
+                    to={`/${c.media_type || title}/details/${c.id}`}
                     className="relative w-[25vh] mr-[5%] mb-[5%]"
                     key={i}
                 >
