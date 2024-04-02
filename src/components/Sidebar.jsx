@@ -22,19 +22,19 @@ const Sidebar = () => {
         <i className="ri-fire-fill"></i>  Tranding
         </Link>
 
-        <Link className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/popular" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="mr-2 ri-bard-fill"></i> Popular
         </Link>
 
-        <Link className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/movie" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="mr-2 ri-movie-2-fill"></i> Movies
         </Link>
 
-        <Link className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/tv-show" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="mr-2 ri-tv-2-fill"></i> Tv Shows
         </Link>
 
-        <Link className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
+        <Link to="/people" className="p-3 hover:bg-[#6556CD] duration-300 rounded-lg hover:text-white text-lg">
         <i className="mr-2 ri-team-fill"></i> People
         </Link>
       </nav>

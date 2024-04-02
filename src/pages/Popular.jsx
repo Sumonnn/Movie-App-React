@@ -1,50 +1,51 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Navbar from "../components/common/Navbar";
-import DropDown from "../components/common/DropDown";
 import axios from "../utils/axios";
-import Loading from "../components/common/Loading";
-import Cards from "../components/dashboard/Cards";
+import React, { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useNavigate } from "react-router-dom";
+import Cards from "../components/dashboard/Cards";
+import DropDown from "../components/common/DropDown";
+import Navbar from "../components/common/Navbar";
+import Loading from "../components/common/Loading";
 
-const Trending = () => {
-  document.title = "RJFGs | Trending";
+const Popular = () => {
+  document.title = "RJFGs | Popular";
   const navigate = useNavigate();
-  const [category, setCategory] = useState("all");
-  const [duration, setDuration] = useState("day");
-  const [trending, setTrending] = useState([]);
+  const [category, setCategory] = useState("movie");
+  const [popular, setPopular] = useState([]);
   const [page, setpage] = useState(1);
   const [hasMore, sethasMore] = useState(true);
 
-  const GetTrendings = async () => {
+  const GetPopular = async () => {
     try {
-      const { data } = await axios.get(`trending/${category}/${duration}?page=${page}`);
+      const { data } = await axios.get(`${category}/popular?page=${page}`);
+
       if (data.results.length > 0) {
-        setTrending((prev) => [...prev, ...data.results]);
+        setPopular((prev) => [...prev, ...data.results]);
         setpage(page + 1);
       } else {
         sethasMore(false);
       }
+
     } catch (error) {
       console.log("Error :" + error);
     }
   };
 
   const refershHandler = () => {
-    if (trending.length === 0) {
-      GetTrendings();
+    if (popular.length === 0) {
+      GetPopular();
     } else {
       setpage(1);
-      setTrending([]);
-      GetTrendings();
+      setPopular([]);
+      GetPopular();
     }
   };
 
   useEffect(() => {
     refershHandler();
-  }, [category, duration]);
+  }, [category]);
 
-  return trending ? (
+  return popular ? (
     <div className="w-screen h-screen">
       <div className="w-full p-[2%] flex items-center">
         <h1
@@ -52,30 +53,26 @@ const Trending = () => {
           className="text-2xl cursor-pointer flex items-center gap-2 font-semibold text-zinc-400"
         >
           <i className=" hover:text-[#6556CD] cursor-pointer ri-arrow-left-line"></i>{" "}
-          Trending
+          Popular
         </h1>
 
         <Navbar />
         <DropDown
           title="Category"
-          options={["all", "movie", "tv"]}
+          options={["movie", "tv"]}
           func={setCategory}
         />
         <div className="w-[2%]"></div>
-        <DropDown
-          title="Duration"
-          options={["day", "week"]}
-          func={setDuration}
-        />
+        
       </div>
 
       <InfiniteScroll
-        dataLength={trending.length}
-        next={GetTrendings}
+        dataLength={popular.length}
+        next={GetPopular}
         hasMore={hasMore}
         loader={<h1 className="text-center mt-10">Loading...</h1>}
       >
-        <Cards data={trending} category={category} />
+        <Cards data={popular} category={category} />
       </InfiniteScroll>
     </div>
   ) : (
@@ -83,4 +80,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default Popular;
