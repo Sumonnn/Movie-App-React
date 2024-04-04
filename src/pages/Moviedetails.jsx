@@ -7,7 +7,7 @@ import HorizontalCards from "../components/common/HorizontalCards"
 
 const Moviedetails = () => {
 
-  document.title = "SCSDB | Movie Details";
+  document.title = "RJFGs | Movie Details";
 
   const { pathname } = useLocation();
   const { id } = useParams();
